@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <title>components-libary | CarouslStage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link type="text/css" href="assets/css/font-awesome.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/ionicons.min.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/owl.carousel.css" rel="stylesheet"/>
+
+    <link type="text/css" href="assets/css/slick.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/slick-theme.css" rel="stylesheet">
+    <link type="text/css" href="style.css" rel="stylesheet"/>
+    <!--[if lt IE 9]><script src="assets/js/modernizr.min.js" type="text/javascript"></script><![endif]-->
+</head>
+<body>
+    <div id="wrapper"><!--strat wrapper-->
+        <div class="slick_slider_area">
+            <div class="slick_slider_wrap">
+                <div class="slick_slider_box">
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_2.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_3.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_4.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_5.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_3.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_3.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_4.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_5.jpg" alt=""></div>
+                    </div>
+
+                    <div class="slick_slider_item">
+                        <div class="slick_slider_img"><img src="assets/images/carouselsPadding_1.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--//end #wrapper-->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        jQuery(document).ready(function(){
+            // carouselpadding slider
+            var slick_slider_box = jQuery(".slick_slider_box");
+            slick_slider_box.slick({
+                slidesToShow: 3,
+                infinite: true,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                arrows: false,
+                dots: false,
+                appendDots:jQuery('.slider-controls'),
+                centerMode: false,
+                centerPadding: '0px',
+                // vertical: true,
+                horizontal: true,
+                responsive: [
+                    {
+                        breakpoint: 1025,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

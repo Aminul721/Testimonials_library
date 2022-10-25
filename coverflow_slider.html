@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <title>components-libary | Coverflow slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link type="text/css" href="assets/css/font-awesome.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/ionicons.min.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/owl.carousel.css" rel="stylesheet"/>
+
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" rel="stylesheet">
+    <link type="text/css" href="style.css" rel="stylesheet"/>
+    <!--[if lt IE 9]><script src="assets/js/modernizr.min.js" type="text/javascript"></script><![endif]-->
+</head>
+<body>
+    <div id="wrapper"><!--strat wrapper-->
+        <div class="coverflow_slider_area">
+        <div class="coverflow_slider_wrap swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <img class="coverflow_img" src="assets/images/carouselsPadding_1.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <img class="coverflow_img" src="assets/images/carouselsPadding_2.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <img class="coverflow_img" src="assets/images/carouselsPadding_3.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <img class="coverflow_img" src="assets/images/carouselsPadding_4.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-slide-container">
+                        <img class="coverflow_img" src="assets/images/carouselsPadding_5.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="navigation_control" style="display: none;">
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+            </div>
+        </div>
+
+    </div><!--//end #wrapper-->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        // swiper-container js
+        var sliderSelector = ".swiper-container",
+        options = {
+            init: false,
+            loop: true,
+            speed: 500,
+            slidesPerView: 4, // or 'auto'
+            spaceBetween: 40,
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            effect: "coverflow", // 'cube', 'fade', 'coverflow',
+            coverflowEffect: {
+                rotate: 0, // Slide rotate in degrees
+                stretch: 0, // Stretch space between slides (in px)
+                depth: 0, // Depth offset in px (slides translate in Z axis)
+                modifier: 1, // Effect multipler
+                slideShadows: false // Enables slides shadows
+            },
+            grabCursor: true,
+            parallax: false,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            breakpoints: {
+                1440: {
+                    slidesPerView: 3.34,
+                },
+                1366: {
+                    slidesPerView: 3,
+                    slideToClickedSlide: false,
+                },
+                1025: {
+                    slidesPerView: 2,
+                    slideToClickedSlide: true,
+                }
+            },
+
+            // Events
+            on: {
+                imagesReady: function () {
+                    this.el.classList.remove("loading");
+                },
+
+                slideChange: function () {
+                    var activeIndex = this.activeIndex;
+                    var realIndex = this.slides.eq(activeIndex).attr('data-swiper-slide-index');
+
+                    jQuery('.swiper-slide').removeClass('swiper-slide-prev-before swiper-slide-next-after');
+
+                    jQuery('.swiper-slide[data-swiper-slide-index="'+realIndex+'"]').prev().prev().addClass('swiper-slide-prev-before');
+                    jQuery('.swiper-slide[data-swiper-slide-index="'+realIndex+'"]').next().next().addClass('swiper-slide-next-after');
+                },
+            }
+        };
+        var mySwiper = new Swiper(sliderSelector, options);
+
+        // Initialize slider
+        mySwiper.init();
+    </script>
+</body>
+</html>

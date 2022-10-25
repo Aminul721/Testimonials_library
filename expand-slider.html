@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>components-libary | Expand slider</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link type="text/css" href="assets/css/font-awesome.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/ionicons.min.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/flexslider.css" rel="stylesheet"/>
+    <link type="text/css" href="assets/css/fancybox.min.css" rel="stylesheet"/>
+    <link type="text/css" href="style.css" rel="stylesheet"/>
+    <!--[if lt IE 9]><script src="assets/js/modernizr.min.js" type="text/javascript"></script><![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <div class="slider_area"> <!-- start slider_area -->
+            <div class="expand_flex append_expand">
+                <a href="assets/images/expand_sliderimg.jpg" data-fancybox="gallery" data-caption="">Expand</a>
+            </div>
+            <div id="sliderCamel" class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="slideImg only_desktop_view lp_viewNone">
+                            <a href="assets/images/expand_sliderimg.jpg" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimg.jpg" alt=""></a>
+                        </div>
+                        <div class="slideImg only_lp_view">
+                            <a href="assets/images/expand_sliderimLP.png" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimLP.png" alt=""></a>
+                        </div>
+                        <div class="slideImg only_tbl_view">
+                            <a href="assets/images/expand_sliderimTBL.png" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimTBL.png" alt=""></a>
+                        </div>
+                        <div class="slideImg only_mobile_view">
+                            <a href="assets/images/expand_sliderimgMB.jpg" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimgMB.jpg" alt=""></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="slideImg only_desktop_view lp_viewNone">
+                            <a href="assets/images/expand_sliderimg.jpg" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimg.jpg" alt=""></a>
+                        </div>
+                        <div class="slideImg only_lp_view">
+                            <a href="assets/images/expand_sliderimLP.png" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimLP.png" alt=""></a>
+                        </div>
+                        <div class="slideImg only_tbl_view">
+                            <a href="assets/images/expand_sliderimTBL.png" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimTBL.png" alt=""></a>
+                        </div>
+                        <div class="slideImg only_mobile_view">
+                            <a href="assets/images/expand_sliderimgMB.jpg" data-fancybox="gallery" data-caption=""><img src="assets/images/expand_sliderimgMB.jpg" alt=""></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- end slider_area -->
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.flexslider.js"></script>
+    <script src="assets/js/fancybox.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        jQuery(window).load(function() {
+            // expand_slider
+            var expand_slider = jQuery("#sliderCamel");
+            expand_slider.flexslider({
+                animation: "slide",
+                animationLoop: false, 
+                slideshowSpeed: 1500, 
+                animationSpeed: 500,  
+                touch: true,
+                controlNav: false,
+                directionNav: true,
+                drag: true,
+                simulateTouch: true, 
+                // mousewheel: true,
+            });
+            
+
+            var createLI = document.createElement("li");
+            createLI.className = "expand_flex";
+            var createAchor = document.createElement("a");
+            createAchor.className = "expand_flexAchor";
+            var achortext = document.createTextNode("Expand");
+            jQuery(jQuery(createAchor)).append(achortext);
+            var pushElement = jQuery(jQuery(createLI)).append(createAchor);
+            jQuery('.slider_area .flex-direction-nav').append(pushElement);
+
+            jQuery(window).resize(function() {
+                var WindowSize = jQuery(this).width();
+                var innerHtmlChange = jQuery(".flex-nav-prev > .flex-prev");
+                if(WindowSize < 991) {
+                    innerHtmlChange.html('Back');
+                }else {
+                    innerHtmlChange.html('Previous');
+                }
+            });
+        });
+
+        (function($) {
+            $('.expand_flex p').click(function() {
+                jQuery('[data-fancybox="gallery"]').fancybox({
+                    buttons: [
+                        "slideShow",
+                        "thumbs",
+                        "zoom",
+                        "fullScreen",
+                        // "share",
+                        "close",
+                    ],
+                    loop: true,
+                    protect: false
+                });
+            });
+
+            setInterval(appendExpandF, 1000);
+            function appendExpandF() {
+                var append_expand = jQuery(".append_expand");
+                jQuery('.slider_area .flex-direction-nav').append(append_expand);
+            }
+        })(jQuery);
+    </script>
+</body>
+</html>
